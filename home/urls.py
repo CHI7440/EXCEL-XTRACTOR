@@ -5,4 +5,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('',views.home_page),
+    path('upload-file',views.upload_file)
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

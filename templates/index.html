@@ -14,7 +14,7 @@
     <h1>EXCEL XTRACTOR</h1>
 </header>
   <div class="container">
-    <form action="" method="post" enctype="multipart/form-data">
+    <form id='upload-form' method="post" enctype="multipart/form-data">
         {% csrf_token %}
     <div class="drag-area">
       <div id="image-container">
@@ -23,11 +23,8 @@
         <div class="icon"><i class="fa-solid fa-circle-plus"></i></div>
         <header>Drag & Drop to Upload File</header>
         <span>OR</span>
-        <button type="submit">Browse File</button>
+        <button type="button">Browse File</button>
         <input type="file" hidden accept=".csv, .xls, .xlsx, .xlsm">
-        <div class="file-info" >
-            <span class="file-name"></span>
-        </div>
     </div>
     </form>
   </div>
