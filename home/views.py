@@ -11,43 +11,28 @@ def home_page(request):
 
 def upload_file(request):
     if request.method == 'POST' and request.FILES.get('file'):
-        print(request.FILES)
         uploaded_file = request.FILES['file']
-        print(1)
         file_name = uploaded_file.name
-        print(2)
         file_path = os.path.join(settings.MEDIA_ROOT, 'uploads', file_name)
-        print(3)
         # Save the uploaded file
         with open(file_path, 'wb+') as destination:
-            print(4)
             for chunk in uploaded_file.chunks():
                 destination.write(chunk)
 
         # Process the file based on its extension
         try:
-            print(5)
             if file_name.endswith('.csv'):
-                print(6)
                 df = pd.read_csv(file_path)
-                print(7)
             elif file_name.endswith('.xls') or file_name.endswith('.xlsx') or file_name.endswith('.xlsm'):
-                print(8)
                 df = pd.read_excel(file_path)
-                print(9)
             else:
-                print(10)
                 return HttpResponse('Unsupported file format', status=400)
 
             # Generate the summary
-            print(11)
             summary = df.groupby(['Cust State', 'DPD']).size().reset_index(name='Count')
-            print(12)
             summary_html = organize_html(summary)
             display_html = summary.to_html()
             # Send the email
-            print(13)
-            print(14)
             request.session['summary_html'] = display_html
             subject='Summary of Your Excel Sheet'
             from_email= 'panjwanichirag123@gmail.com'
@@ -58,17 +43,14 @@ def upload_file(request):
             message.attach_alternative(html_content,'text/html')
             message.send()
             # Render the summary
-            print(15)
             return render(request, 'summary.html', {'summary': summary_html})
         except Exception as e:
             print(e)
-            print(16)
             return HttpResponse(f'Error processing file: {e}', status=500)
     elif request.method == 'GET' and 'summary_html' in request.session :
         summary_html = request.session['summary_html']
         return render(request,'summary.html',{'summary':summary_html})
     else:
-        print(17)
         return render(request,'summary.html')
 
 def organize_html(summary):
