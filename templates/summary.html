@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EXCEL XTRACTOR</title>
+  <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/png">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <header id="header">
+    <h1>EXCEL XTRACTOR</h1>
+</header>
+  <div class="container">
+    <h2 style="margin: 10px;">Summary Report</h2>
+    <h3 style="margin: 10px;">Same is also being sent to 'tech@themedius.ai' and 'hr@themedius.ai'</h3>
+    <div>{{ summary|safe }}</div>
+    </div>
+</body>
+</html>
