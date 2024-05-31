@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  font-family: 'Libre Baskerville', "serif";
+}
+
+html,body{
+  display:grid;
+  height: 100vh;
+  place-items: center;
+  text-align: center;
+}
+
+#header{
+  margin-bottom: 1vh;
+}
+
+/* .container{
+  height: 350px;
+  width: 430px;
+  position:relative;
+}
+.container .wrapper{
+  position: relative;
+  height: 250px;
+  width: 100%;
+  border-radius: 10px;
+  background: #fff;
+  border: 2px dashed #c4cc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.wrapper.active{
+  border: none;
+}
+.wrapper .image{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper img{
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+.wrapper .icon{
+  font-size: 100px;
+  color: #9658fe;
+}
+.wrapper .text{
+  font-size: 20px;
+  font-weight: 500;
+  color: #5b5b7b;
+}
+.wrapper #cancel-btn i{
+  position: absolute;
+  font-size: 20px;
+  right: 15px;
+  top: 15px;
+  color: #9658fe;
+  cursor: pointer;
+  display: none;
+}
+.wrapper.active:hover #cancel-btn i{
+  background: transparent;
+  display: block;
+}
+.wrapper #cancel-btn i:hover{
+  color: #e74c3c;
+}
+.wrapper .file-name{
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  padding: 8px 0;
+  font-size: 18px;
+  color: #fff;
+  display: none;
+  background: linear-gradient(135deg,#3a8ffe 0%,#9658fe 100%);
+}
+.wrapper.active:hover .file-name{
+  display: block;
+}
+.container #custom-btn{
+  margin-top: 30px;
+  display: block;
+  width: 100%;
+  height: 50px;
+  border: none;
+  outline: none;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: linear-gradient(135deg,#3a8ffe 0%,#9658fe 100%);
+}
+
+.container #upload-btn{
+  margin-top: 30px;
+  display: block;
+  width: 100%;
+  height: 50px;
+  border: none;
+  outline: none;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: not-allowed;
+  background: linear-gradient(135deg,#3a8ffe 0%,#9658fe 100%);
+} 
+
+
+.container #id_image{
+  display: none;
+}
+.container label[for='id_image'],.errorlist{
+  display: none;
+}
+
+.container #upload-btn:disabled{
+  background: #cccccc;
+  color: #eee;
+} */
+
+.container #upload-btn:disabled{
+  background: #cccccc;
+  color: #eee;
+}
+
+.container #upload-btn{
+  margin-top: 30px;
+  display: block;
+  width: 100%;
+  height: 50px;
+  border: none;
+  outline: none;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: not-allowed;
+  background: linear-gradient(135deg,#3a8ffe 0%,#9658fe 100%);
+} 
+
+
+.drag-area{
+  border: 2px solid #5256ad;
+  height: 400px;
+  width: 700px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.drag-area.active{
+  border: 2px solid #5256ad;
+}
+
+.drag-area .icon{
+  font-size: 100px;
+  color: #5256ad;
+}
+
+.drag-area header{
+  font-size: 30px;
+  font-weight: 500;
+  color: #5256ad;
+}
+.drag-area span{
+  font-size: 25px;
+  font-weight: 500;
+  color: #5256ad;
+  margin: 10px 0 15px 0;
+}
+.drag-area button{
+  padding: 10px 25px;
+  font-size: 20px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  background: #5256ad;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.drag-area img{
+  height: 100px;
+  width: 100px;
+  object-fit: fill;
+  border-radius: 5px;
+  opacity: 40%;
+}
+
+.file-info {
+  display: none; /* initially hidden */
+  align-items: center;
+  margin-top: 20px;
+}
+
+.file-info .file-name {
+  font-size: 18px;
+  font-weight: 500;
+  color: #5256ad;
+}
+
+.drag-area.active .icon,
+.drag-area.active header,
+.drag-area.active span,
+.drag-area.active button {
+  display: none;
+}
+
+.drag-area.active .file-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.drag-area.active .file-info .file-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #5256ad;
+  margin-top: 20px;
+}
+
+
+#footer{
+  margin-top: 15vh;
+  position: relative;
+}
