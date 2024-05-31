@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-eu7^q$g^exos*3^hf-q2-3wt-bjd97c(zyc2c*5wf^_0#$(u*y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['excel-xtractor.onrender.com']
 
